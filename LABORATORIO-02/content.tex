@@ -1,0 +1,29 @@
+\section{Introducción}
+La memoria compartida se refiere a una arquitectura en la que múltiples procesadores acceden a una única área de memoria compartida. Por otro lado, la memoria distribuida implica que cada procesador tiene su propia memoria local.
+
+\section{Mecanismos de Interconexión en Memoria Compartida}
+Los sistemas de memoria compartida utilizan una variedad de mecanismos de interconexión para permitir que múltiples procesadores accedan a la misma memoria. Algunos de los mecanismos comunes incluyen:
+
+\begin{itemize}
+    \item \textbf{Buses Compartidos:} En esta arquitectura, se utiliza un bus compartido para conectar todos los procesadores y la memoria compartida. Aunque es simple, puede haber cuellos de botella cuando muchos procesadores intentan acceder al bus al mismo tiempo.
+    
+    \item \textbf{Conmutadores:} Los conmutadores (switches) son utilizados para crear una red de interconexión más escalable en sistemas de memoria compartida. Esto permite un acceso más eficiente a la memoria compartida.
+    
+    \item \textbf{NUMA (Arquitectura de Memoria No Uniforme):} En sistemas NUMA, se utiliza una topología especializada para minimizar los retardos de acceso a la memoria compartida, lo que resulta en un rendimiento mejorado.
+\end{itemize}
+
+\section{Mecanismos de Interconexión en Memoria Distribuida}
+En los sistemas de memoria distribuida, cada procesador tiene su propia memoria local y se comunican entre sí a través de una red. Algunos mecanismos comunes en memoria distribuida son:
+
+\begin{itemize}
+    \item \textbf{Redes de Interconexión:} Las redes de interconexión, como Ethernet o InfiniBand, se utilizan para permitir la comunicación entre los nodos en sistemas de memoria distribuida.
+    
+    \item \textbf{Mensajería:} Los procesadores en sistemas de memoria distribuida se comunican mediante mensajes enviados a través de la red. Esto puede ser implementado con bibliotecas como MPI (Interfaz de Paso de Mensajes).
+    
+    \item \textbf{Clustering:} Los sistemas de memoria distribuida también pueden organizarse en clústeres, donde múltiples nodos se agrupan para trabajar juntos en una tarea específica.
+\end{itemize}
+
+\section{Conclusiones}
+Tanto la memoria compartida como la memoria distribuida tienen sus propias ventajas y desventajas. La elección entre estos dos enfoques depende de las necesidades específicas de una aplicación. Los mecanismos de interconexión juegan un papel crucial en el rendimiento y la escalabilidad de estos sistemas.
+
+En resumen, los sistemas de memoria compartida utilizan mecanismos como buses compartidos y conmutadores, mientras que los sistemas de memoria distribuida se basan en redes de interconexión y comunicación por mensajes. La elección adecuada depende de los requisitos de rendimiento y escalabilidad de una aplicación particular.

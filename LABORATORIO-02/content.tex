@@ -1,29 +1,82 @@
 \section{Introducción}
-La memoria compartida se refiere a una arquitectura en la que múltiples procesadores acceden a una única área de memoria compartida. Por otro lado, la memoria distribuida implica que cada procesador tiene su propia memoria local.
+Este informe analiza el rendimiento de la multiplicación de matrices implementada en el código proporcionado. Se comparan dos enfoques: la multiplicación de matrices clásica y la multiplicación de matrices por bloques. El objetivo es evaluar el impacto del tamaño de las matrices y el tamaño del bloque en el rendimiento de la multiplicación de matrices.
 
-\section{Mecanismos de Interconexión en Memoria Compartida}
-Los sistemas de memoria compartida utilizan una variedad de mecanismos de interconexión para permitir que múltiples procesadores accedan a la misma memoria. Algunos de los mecanismos comunes incluyen:
+\section{Código Fuente}
+A continuación, se muestra el código fuente utilizado en el análisis:
+
+\lstinputlisting[language=C++, caption=Código fuente de multiplicación de matrices]{codigo/multplicacion_por_bloques.cpp}
+
+\section{Metodología}
+Se realizaron pruebas con matrices de diferentes tamaños (100x100, 200x200, 500x500 y 1000x1000) y se midió el tiempo de ejecución de la multiplicación de matrices clásica y por bloques. Se utilizó la biblioteca de C++ \texttt{chrono} para medir el tiempo de ejecución.
+
+\section{Resultados}
+A continuación, se presentan los resultados obtenidos para cada tamaño de matriz y tamaño de bloque:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Tamaño de la Matriz & Tiempo (Clásico) (ms) & Tiempo (Bloques, Tamaño del Bloque 32) (ms) \\
+\hline
+100x100 & 16 & 18 \\
+\hline
+200x200 & 133 & 145 \\
+\hline
+500x500 & 2071 & 2137 \\
+\hline
+1000x1000 & 20308 & 17799 \\
+\hline
+\end{tabular}
+\caption{Resultados de tiempo de ejecución}
+\end{table}
+
+\section{Análisis}
+Los resultados muestran que la multiplicación de matrices por bloques tiende a ser más eficiente que la multiplicación de matrices clásica a medida que aumenta el tamaño de las matrices. Esto se debe a la optimización de la memoria caché al dividir las matrices en bloques más pequeños.
+
+\subsection{Análisis del Movimiento de Datos}
+Para comprender mejor por qué la multiplicación de matrices por bloques es más eficiente, analicemos el movimiento de datos entre la memoria principal y la memoria caché en ambos enfoques:
+
+\subsubsection{Multiplicación de Matrices Clásica}
+En la multiplicación de matrices clásica, se accede a los elementos de las matrices $A$, $B$ y $C$ de manera secuencial en bucles anidados. Esto puede provocar un alto número de fallos de caché, ya que los datos pueden no estar disponibles en la memoria caché cuando se necesitan debido a la falta de localidad espacial.
+
+\subsubsection{Multiplicación de Matrices por Bloques}
+En la multiplicación de matrices por bloques, se dividen las matrices en bloques más pequeños y se procesan de manera iterativa. Esto mejora la localidad espacial, ya que los datos en un bloque son más propensos a estar en la memoria caché cuando se accede a ellos. El bucle más interno que opera en los bloques tiene un menor número de iteraciones, lo que reduce aún más los fallos de caché.
+
+\subsection{Complejidad Algorítmica}
+Ambos enfoques tienen una complejidad algorítmica de $O(N^3)$, donde $N$ es el tamaño de la matriz. Sin embargo, la multiplicación de matrices por bloques tiende a tener un mejor rendimiento en la práctica debido a una mejor gestión de la memoria caché.
+
+\section{Resultados de Cache Misses}
+A continuación, se presentan los resultados obtenidos del archivo "callgrind.out.5541", que contiene información sobre los "cache misses" durante la ejecución de los algoritmos:
+
+\begin{verbatim}
+Descarga completa de resultados de "callgrind.out.5541"...
+(Aquí se muestra una parte de los resultados debido a su extensión.)
+
+Total de Cache Misses: 18612404250
+\end{verbatim}
+
+Los resultados indican que durante la ejecución de los algoritmos, se produjeron un total de 18,612,404,250 "cache misses". Estos fallos de caché pueden afectar significativamente el rendimiento de la aplicación y son una métrica importante para evaluar la eficiencia de los algoritmos en términos de acceso a la memoria caché.
+
+\section{Análisis}
+El alto número de "cache misses" observados durante la ejecución de los algoritmos sugiere que se debe prestar atención a la gestión de la memoria caché en la implementación. Los "cache misses" ocurren cuando los datos necesarios no se encuentran en la memoria caché y deben recuperarse desde la memoria principal, lo que implica un mayor tiempo de acceso.
+
+Para mejorar el rendimiento y reducir los "cache misses", se pueden considerar las siguientes estrategias:
 
 \begin{itemize}
-    \item \textbf{Buses Compartidos:} En esta arquitectura, se utiliza un bus compartido para conectar todos los procesadores y la memoria compartida. Aunque es simple, puede haber cuellos de botella cuando muchos procesadores intentan acceder al bus al mismo tiempo.
+    \item **Optimización de la localidad espacial**: Reorganizar el acceso a los datos en la memoria de manera que los datos utilizados juntos estén cerca en memoria para aprovechar la localidad espacial.
     
-    \item \textbf{Conmutadores:} Los conmutadores (switches) son utilizados para crear una red de interconexión más escalable en sistemas de memoria compartida. Esto permite un acceso más eficiente a la memoria compartida.
+    \item **Optimización del tamaño del bloque**: Evaluar y ajustar el tamaño del bloque utilizado en la multiplicación de matrices por bloques para maximizar la eficiencia de la memoria caché.
     
-    \item \textbf{NUMA (Arquitectura de Memoria No Uniforme):} En sistemas NUMA, se utiliza una topología especializada para minimizar los retardos de acceso a la memoria compartida, lo que resulta en un rendimiento mejorado.
+    \item **Técnicas de pre-carga (prefetching)**: Utilizar técnicas de pre-carga de datos para anticipar las necesidades de datos futuros y traerlos a la memoria caché de manera anticipada.
+    
+    \item **Optimización de bucles**: Revisar la estructura de bucles en el código para minimizar los accesos innecesarios a la memoria y maximizar la reutilización de datos en caché.
 \end{itemize}
 
-\section{Mecanismos de Interconexión en Memoria Distribuida}
-En los sistemas de memoria distribuida, cada procesador tiene su propia memoria local y se comunican entre sí a través de una red. Algunos mecanismos comunes en memoria distribuida son:
 
-\begin{itemize}
-    \item \textbf{Redes de Interconexión:} Las redes de interconexión, como Ethernet o InfiniBand, se utilizan para permitir la comunicación entre los nodos en sistemas de memoria distribuida.
-    
-    \item \textbf{Mensajería:} Los procesadores en sistemas de memoria distribuida se comunican mediante mensajes enviados a través de la red. Esto puede ser implementado con bibliotecas como MPI (Interfaz de Paso de Mensajes).
-    
-    \item \textbf{Clustering:} Los sistemas de memoria distribuida también pueden organizarse en clústeres, donde múltiples nodos se agrupan para trabajar juntos en una tarea específica.
-\end{itemize}
 
 \section{Conclusiones}
-Tanto la memoria compartida como la memoria distribuida tienen sus propias ventajas y desventajas. La elección entre estos dos enfoques depende de las necesidades específicas de una aplicación. Los mecanismos de interconexión juegan un papel crucial en el rendimiento y la escalabilidad de estos sistemas.
+Basado en los resultados, se puede concluir que la multiplicación de matrices por bloques es una técnica eficiente para matrices grandes. Sin embargo, el tamaño del bloque también puede influir en el rendimiento, por lo que es importante ajustarlo adecuadamente según el problema y la arquitectura del sistema.
 
-En resumen, los sistemas de memoria compartida utilizan mecanismos como buses compartidos y conmutadores, mientras que los sistemas de memoria distribuida se basan en redes de interconexión y comunicación por mensajes. La elección adecuada depende de los requisitos de rendimiento y escalabilidad de una aplicación particular.
+Los resultados de "cache misses" obtenidos a través del análisis de Valgrind y KCacheGrind proporcionan una valiosa información sobre la eficiencia de la gestión de la memoria caché en los algoritmos de multiplicación de matrices. Para mejorar el rendimiento de los algoritmos y reducir los "cache misses", se deben aplicar estrategias de optimización de la gestión de la memoria y la localidad espacial.
+
+El análisis de "cache misses" es esencial para identificar áreas críticas de optimización en el código y garantizar un rendimiento eficiente en aplicaciones que realizan operaciones intensivas en matrices.

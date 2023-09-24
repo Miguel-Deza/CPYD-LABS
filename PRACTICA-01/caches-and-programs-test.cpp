@@ -2,7 +2,7 @@
 #include <vector>
 #include <ctime>
 
-const int MAX = 1000;
+const int MAX = 10000;
 
 int main() {
     std::vector<std::vector<double>> A(MAX, std::vector<double>(MAX, 1.0));

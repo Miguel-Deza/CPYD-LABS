@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.11)  11 SEP 2023 15:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.11)  22 SEP 2023 18:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/dmike/Desktop/CPYD-LABS/LABORATORIO-01/laboratorio-informe.tex
-(c:/Users/dmike/Desktop/CPYD-LABS/LABORATORIO-01/laboratorio-informe.tex
+**c:/Users/dmike/Desktop/CPYD-LABS/LABORATORIO-01/LABORATORIO-INFORME.tex
+(c:/Users/dmike/Desktop/CPYD-LABS/LABORATORIO-01/LABORATORIO-INFORME.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
 (c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -210,7 +210,7 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count282
 \l__pdf_internal_box=\box53
 ) (./laboratorio-informe.aux)
-\openout1 = `laboratorio-informe.aux'.
+\openout1 = `LABORATORIO-INFORME.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
@@ -272,11 +272,11 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 \c@lstlisting=\count283
 Package hyperref Info: Link coloring OFF on input line 48.
-(./laboratorio-informe.out) (./laboratorio-informe.out)
+(./LABORATORIO-INFORME.out) (./LABORATORIO-INFORME.out)
 \@outlinefile=\write3
-\openout3 = `laboratorio-informe.out'.
+\openout3 = `LABORATORIO-INFORME.out'.
 
-<logos/cs.png, id=28, 277.035pt x 182.6825pt>
+<logos/cs.png, id=20, 277.035pt x 182.6825pt>
 File: logos/cs.png Graphic file (type png)
 <use logos/cs.png>
 Package pdftex.def Info: logos/cs.png  used on input line 51.
@@ -287,27 +287,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 69.
  [1
 
-{c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logos/cs.png>] (./content.tex [2]) [3] (./laboratorio-informe.aux)
+{c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logos/cs.png>] (./content.tex) [2] (./laboratorio-informe.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
-Package rerunfilecheck Info: File `laboratorio-informe.out' has not changed.
-(rerunfilecheck)             Checksum: DCB5E97EDC81358872A31623E9A848B2;1008.
+Package rerunfilecheck Info: File `LABORATORIO-INFORME.out' has not changed.
+(rerunfilecheck)             Checksum: 8EE137A1415CF8E17DADEF926E9877CC;826.
  ) 
 Here is how much of TeX's memory you used:
- 10448 strings out of 476893
- 162174 string characters out of 5807026
- 1997801 words of memory out of 5000000
- 31621 multiletter control sequences out of 15000+600000
- 562077 words of font info for 50 fonts, out of 8000000 for 9000
+ 10095 strings out of 476893
+ 159220 string characters out of 5807026
+ 1926801 words of memory out of 5000000
+ 31283 multiletter control sequences out of 15000+600000
+ 561471 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,9n,79p,611b,1187s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on laboratorio-informe.pdf (3 pages, 119376 bytes).
+ 75i,5n,79p,443b,430s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on LABORATORIO-INFORME.pdf (2 pages, 96575 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 74 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

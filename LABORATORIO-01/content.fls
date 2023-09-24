@@ -1,6 +1,0 @@
-PWD c:/Users/dmike/Desktop/CPYD-LABS/LABORATORIO-01
-INPUT c:/Users/dmike/AppData/Roaming/TinyTeX/texmf.cnf
-INPUT c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-dist/web2c/texmf.cnf
-INPUT c:/Users/dmike/AppData/Roaming/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/dmike/Desktop/CPYD-LABS/LABORATORIO-01/content.tex
-OUTPUT content.log
